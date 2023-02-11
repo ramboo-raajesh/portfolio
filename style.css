@@ -2462,7 +2462,6 @@ select.mobile-device {
     color: #1f1f1f;
     background-color: transparent;
 }
-
 .btn-light:hover,
 .btn-light:focus {
     border-color: rgba(255, 255, 255, 0.6);
