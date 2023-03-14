@@ -1,4 +1,4 @@
-/*GENERAL*/
+/*GENERALL*/
 .camera_wrap img, 
 .camera_wrap ol, .camera_wrap ul, .camera_wrap li,
 .camera_wrap table, .camera_wrap tbody, .camera_wrap tfoot, .camera_wrap thead, .camera_wrap tr, .camera_wrap th, .camera_wrap td
@@ -12,7 +12,7 @@
 	margin: 0;
 	padding: 0;
 	vertical-align: baseline;
-	list-style: none
+	list-style: none	
 }
 .camera_wrap {
 	direction: ltr;
