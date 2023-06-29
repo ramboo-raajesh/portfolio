@@ -32,15 +32,8 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <!-- Google tag (gtag.js) -->
-   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8KQGXZ2CDM"></script>
-   <script>
-   window.dataLayer = window.dataLayer || [];
-   function gtag(){dataLayer.push(arguments);}
-   gtag('js', new Date());
+   <script src="https://cdn.jsdelivr.net/npm/countup.js@2.0.7/dist/countUp.min.js"></script>
 
-   gtag('config', 'G-8KQGXZ2CDM');
- </script>
 </head>
 <body id="page-top" class="politics_version">
 
@@ -373,6 +366,17 @@
     <!-- ALL PLUGINS -->
     <script src="js/custom.js"></script>
     <script src="js/jquery.vide.js"></script>
+<p>Page visits: <span id="visitCount">0</span></p>
+<script>// Create a new CountUp instance
+const counter = new CountUp('visitCount', 0, 0);
 
-</body>
+// Function to increment the visit count
+function incrementVisitCount() {
+  counter.update(counter.endVal + 1);
+}
+
+// Call the incrementVisitCount function whenever you want to increment the visit count
+incrementVisitCount();
+</script>
+</body>		
 </html>
