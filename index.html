@@ -6,6 +6,112 @@
   <title>Raajesh N – ML & AI Engineer</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+  <style>
+    /* Reuse existing styles */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Segoe UI", sans-serif; color: #333; line-height: 1.6; position: relative; }
+    #background { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
+    .container { max-width: 800px; margin: 0 auto; padding: 2rem; }
+
+    header#top-banner {
+      background: linear-gradient(135deg, #004F90, #0066CC);
+      color: #fff;
+      padding: 4rem 0;
+      text-align: center;
+      animation: bannerFade 1.5s ease-out;
+    }
+    header h1 { font-size: 3rem; animation: fadeInDown 1s ease-out; }
+    header .subtitle { font-size: 1.2rem; margin-top: 0.5rem; }
+    .social-links a {
+      color: #fff; margin: 0 0.75rem; font-size: 1.3rem;
+      transition: transform 0.2s;
+    }
+    .social-links a:hover { transform: scale(1.2); }
+
+    section { margin-top: 3rem; animation: fadeInUp 1s ease-out; }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #004F90;
+      border-bottom: 2px solid #004F90;
+      display: inline-block;
+    }
+    .card {
+      background: #fafafa;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: box-shadow 0.3s;
+    }
+    .card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+    .card h3 { margin-bottom: 0.5rem; }
+    .card a { color: #0066CC; text-decoration: none; font-weight: bold; }
+    .card a:hover { text-decoration: underline; }
+
+    ul { list-style: square; margin-left: 1.5rem; }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 3rem;
+      border-top: 1px solid #ddd;
+      background: rgba(255,255,255,0.8);
+    }
+
+    @keyframes bannerFade {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #skills ul { list-style: circle; margin-left: 1.5rem; }
+    #skills li { margin-bottom: 6px; }
+
+    /* Floating Button Styles */
+    .floating-buttons {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      display: flex;
+      gap: 12px;
+      opacity: 0;
+      z-index: 999;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .floating-buttons.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .float-btn {
+      background-color: #004F90;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 30px;
+      border: none;
+      font-size: 15px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .float-btn:hover {
+      background-color: #0074d9;
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
   <canvas id="background"></canvas>
@@ -71,17 +177,17 @@
     </section>
 
     <section id="skills">
-  <h2>🧠 Skills</h2>
-  <div class="card">
-    <p>
-      <strong>Skills:</strong>
-      Python, SQL, Java, JavaScript, MongoDB, Data Lakes, Data Modeling, 
-      AWS (S3, Redshift), Scikit-learn, XGBoost, LightGBM, TensorFlow, PyTorch, 
-      Docker, FastAPI, Flask, Hugging Face Transformers, LLMs (GPT, BERT, TinyLLaMA), 
-      PEFT (LoRA), BitsAndBytes, OpenCV, CNNs, Transformers.
-    </p>
-  </div>
-</section>
+      <h2>🧠 Skills</h2>
+      <div class="card">
+        <p>
+          <strong>Skills:</strong>
+          Python, SQL, Java, JavaScript, MongoDB, Data Lakes, Data Modeling, 
+          AWS (S3, Redshift), Scikit-learn, XGBoost, LightGBM, TensorFlow, PyTorch, 
+          Docker, FastAPI, Flask, Hugging Face Transformers, LLMs (GPT, BERT, TinyLLaMA), 
+          PEFT (LoRA), BitsAndBytes, OpenCV, CNNs, Transformers.
+        </p>
+      </div>
+    </section>
 
     <section id="technologies">
       <h2>🛠️ Technologies</h2>
@@ -93,6 +199,39 @@
   <footer>
     <p>© 2025 Raajesh N • Built with ❤️</p>
   </footer>
-  <script src="scripts.js"></script>
+
+  <!-- 🎯 Floating Buttons -->
+  <div class="floating-buttons" id="floatingBtns">
+    <a href="assets/Raajesh_N_CV.pdf" class="float-btn" download>⬇️ Download CV</a>
+    <a href="https://wa.me/919566874940" target="_blank" class="float-btn">💬 WhatsApp</a>
+  </div>
+
+  <!-- JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("section").forEach(section => {
+        section.style.opacity = 0;
+      });
+
+      const reveal = () => {
+        const triggerBottom = window.innerHeight / 5 * 4;
+        document.querySelectorAll("section").forEach(sec => {
+          const top = sec.getBoundingClientRect().top;
+          if (top < triggerBottom) sec.style.opacity = 1;
+        });
+
+        // Show floating buttons
+        const float = document.getElementById("floatingBtns");
+        if (window.scrollY > 100) {
+          float.classList.add("show");
+        } else {
+          float.classList.remove("show");
+        }
+      };
+
+      window.addEventListener("scroll", reveal);
+      reveal();
+    });
+  </script>
 </body>
 </html>
